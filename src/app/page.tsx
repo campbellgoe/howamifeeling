@@ -1,10 +1,14 @@
+import { AnxietyManagementSteps } from "@/components/anxiety-management-steps";
 import { Reflection } from "@/components/reflection";
-import Image from "next/image";
+
 
 export default function Home() {
   return (
-    <main>
-      <Reflection questions={[
+    <main className="p-4 bold">
+      <h1 className="text-xl">Welcome to How am I feeling?</h1>
+      <details>
+        <summary>Reflect</summary>
+        <Reflection questions={[
     "How still is your inner world? How peaceful are you inside? How contented are you?",
     "How often do you find yourself truly present in the moment?",
     "What recurring thoughts or worries tend to disrupt your inner peace?",
@@ -22,6 +26,72 @@ export default function Home() {
     "How does your physical environment affect your mental state?",
     "What role does forgiveness (of yourself and others) play in your life?"
   ]}/>
+      </details>
+      <details>
+        <summary>Steps to manage anxiety</summary>
+        <AnxietyManagementSteps steps={[
+  {
+    title: "Deep Breathing Exercises",
+    description: "Inhale for 4 seconds, hold for 4 seconds, exhale for 4 seconds. Repeat several times.",
+    icon: "Heart",
+    why: "Activates the parasympathetic nervous system, calming the body and mind."
+  },
+  {
+    title: "Grounding Techniques",
+    description: "Use the 5-4-3-2-1 method: Identify 5 things you can see, 4 touch, 3 hear, 2 smell, and 1 taste.",
+    icon: "Compass",
+    why: "Keeps your focus on the present, pulling you out of anxious thoughts."
+  },
+  {
+    title: "Physical Exercise",
+    description: "Engage in any physical activity (walking, running, yoga, etc.) for 20-30 minutes.",
+    icon: "Dumbbell",
+    why: "Releases endorphins and helps burn off nervous energy."
+  },
+  {
+    title: "Progressive Muscle Relaxation",
+    description: "Tense each muscle group for 5 seconds, then release. Start from feet and move upward.",
+    icon: "BicepsFlexed",
+    why: "Helps your body recognize the difference between tension and relaxation."
+  },
+  {
+    title: "Mindfulness Meditation",
+    description: "Focus on your breathing or a simple word. Gently bring your focus back when your mind wanders.",
+    icon: "Brain",
+    why: "Encourages staying present and accepting thoughts without judgment."
+  },
+  {
+    title: "Limit Stimulants",
+    description: "Cut back on caffeine and sugary foods or drinks that can worsen anxiety.",
+    icon: "Coffee",
+    why: "Stimulants can heighten the body's stress response, making anxiety symptoms more intense."
+  },
+  {
+    title: "Talk it Out",
+    description: "Speak to a friend, family member, or therapist about what you're feeling.",
+    icon: "MessageCircle",
+    why: "Verbalizing your worries can help organize thoughts and gain perspective."
+  },
+  {
+    title: "Journaling",
+    description: "Write down your thoughts, worries, or feelings. List anxieties and challenge them.",
+    icon: "PenTool",
+    why: "Provides an emotional release and helps process what you're going through."
+  },
+  {
+    title: "Visualization",
+    description: "Close your eyes and imagine a peaceful place. Focus on the details—sights, sounds, smells.",
+    icon: "Mountain",
+    why: "Can help distract your mind and promote relaxation."
+  },
+  {
+    title: "Practice Self-Compassion",
+    description: "Acknowledge anxiety without judging yourself. Be kind to yourself, as you would a friend.",
+    icon: "Heart",
+    why: "Helps you treat anxiety as a challenge, not a personal failure."
+  }
+]}/>
+      </details>
     </main>
   )
   
