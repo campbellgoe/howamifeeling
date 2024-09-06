@@ -39,17 +39,24 @@ export default function Home() {
         console.error('Failed to parse localStorage', err);
       }
     }
-    if(window.matchMedia('(prefers-color-scheme: dark)')){
-      setDarkMode(true)
-    }
+    const handleMatchDark = ({ matches }: any) => {
+      setDarkMode(matches)
+  }
+    window.matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change',handleMatchDark)
     // Ensure localStorage is initialized only after loading state
     localStorageInitialised.current = true;
+    return () => {
+      window.matchMedia('(prefers-color-scheme: dark)')
+      .removeEventListener('change',handleMatchDark)
+    }
   }, []);
 
   // Toggle dark mode and update state
   const toggleDarkMode = () => {
     const newDarkMode = !darkMode;
     setDarkMode(newDarkMode);
+    localStorage.setItem(localStorageKey, JSON.stringify({ ...state, darkMode: newDarkMode }));
   };
 
   // Apply dark mode class when the state changes
